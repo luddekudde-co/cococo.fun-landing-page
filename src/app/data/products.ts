@@ -1,5 +1,5 @@
 export interface Product {
-  id: 'resume' | 'reporter' | 'karaoke';
+  id: 'resume' | 'reporter' | 'karaok';
   num: string;
   kind: string;
   titleHtml: string;
@@ -45,7 +45,7 @@ export const PRODUCTS: Product[] = [
     href: '/ai-reporter',
   },
   {
-    id: 'karaoke',
+    id: 'karaok',
     num: '03',
     kind: 'karaoke',
     titleHtml: 'Sing your way <em>into Swedish</em>.',
@@ -56,8 +56,8 @@ export const PRODUCTS: Product[] = [
       'Karaoke auto scrolls, so you can sing along',
     ],
     meta: '',
-    openLabel: 'Open Karaoke',
+    openLabel: 'Open Karaok',
     visual: 'karaoke',
-    href: '#karaoke',
+    href: '/karaok',
   },
 ];
