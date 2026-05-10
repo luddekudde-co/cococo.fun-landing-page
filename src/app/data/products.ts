@@ -16,7 +16,7 @@ export const PRODUCTS: Product[] = [
     num: '01',
     kind: 'tailor',
     titleHtml: 'A resume that gets <em>read</em> — by bots and humans.',
-    tag: 'Paste a job link. Get a version of your resume that passes ATS keywords <i>and</i> reads like a person wrote it.',
+    tag: 'Paste a job link. Get a version of your resume that passes ATS keywords and reads like a person wrote it.',
     bullets: [
       'Paste any job link or description',
       'Bullet rewrites with tone control',

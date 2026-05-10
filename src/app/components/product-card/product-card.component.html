@@ -12,56 +12,93 @@
   </div>
   <div class="c-vis" [ngSwitch]="product.visual">
     <div class="c-vis-resume" *ngSwitchCase="'resume'">
-      <div class="c-vis-ats c-mono"><span>ATS</span><span class="c-vis-pct">86%</span></div>
+      <div class="c-vis-resume-side">
+        <div class="c-vis-resume-side-h c-mono">AI ANALYSIS</div>
+        <div class="c-vis-dials">
+          <div class="c-vis-dial c-vis-dial-low">
+            <svg viewBox="0 0 36 36">
+              <circle cx="18" cy="18" r="15.9" class="c-vis-dial-track"/>
+              <circle cx="18" cy="18" r="15.9" class="c-vis-dial-fill" stroke-dasharray="45 100"/>
+            </svg>
+            <span>45%</span>
+          </div>
+          <div class="c-vis-dial c-vis-dial-high">
+            <svg viewBox="0 0 36 36">
+              <circle cx="18" cy="18" r="15.9" class="c-vis-dial-track"/>
+              <circle cx="18" cy="18" r="15.9" class="c-vis-dial-fill" stroke-dasharray="78 100"/>
+            </svg>
+            <span>78%</span>
+          </div>
+        </div>
+        <div class="c-vis-dial-labels c-mono">
+          <span>Original</span><span>Tailored</span>
+        </div>
+      </div>
       <div class="c-vis-doc">
-        <div class="c-vis-name">Anna Lindqvist</div>
-        <div class="c-vis-role">Senior Product Designer · Stockholm</div>
+        <div class="c-vis-name">Alex Morgan</div>
+        <div class="c-vis-role">Senior Product Designer</div>
+        <div class="c-vis-meta">alex@example.com · Berlin, DE</div>
+        <div class="c-vis-section">SUMMARY</div>
         <div class="c-vis-line c-vis-line-m"></div>
+        <div class="c-vis-line c-vis-line-l"></div>
         <div class="c-vis-line c-vis-line-s"></div>
+        <div class="c-vis-section">EXPERIENCE</div>
+        <div class="c-vis-line c-vis-line-bold"></div>
         <div class="c-vis-line c-vis-line-hl"></div>
         <div class="c-vis-line c-vis-line-m"></div>
-        <div class="c-vis-line c-vis-line-s"></div>
-        <div class="c-vis-line c-vis-line-m"></div>
       </div>
-      <div class="c-vis-float">Tightened bullet — kept human <b>↑12%</b></div>
+      <div class="c-vis-export">Export PDF</div>
     </div>
     <div class="c-vis-news" *ngSwitchCase="'reporter'">
-      <div class="c-vis-head">
-        <span class="c-vis-date">FRI · MAY 09</span>
-        <span class="c-vis-live"><i></i> updated 8m ago</span>
+      <div class="c-vis-news-header">
+        <div class="c-vis-news-brand">AI-Reporter</div>
+        <div class="c-vis-news-tabs">
+          <span class="is-active">Feed</span><span>Digest</span>
+        </div>
       </div>
-      <div class="c-vis-item c-vis-item-hot">
-        <span class="c-vis-n">01</span>
-        <div class="c-vis-t">Anthropic ships agentic search across Claude apps.</div>
+      <div class="c-vis-news-title">Today's AI Intelligence Brief</div>
+      <div class="c-vis-news-grid">
+        <div class="c-vis-story">
+          <div class="c-vis-story-head">
+            <span class="c-vis-impact c-vis-impact-high">● High Impact</span>
+            <span class="c-vis-story-time">22h</span>
+          </div>
+          <div class="c-vis-story-t">Nvidia commits $40B to equity AI deals this year</div>
+          <span class="c-vis-source">TechCrunch</span>
+        </div>
+        <div class="c-vis-story">
+          <div class="c-vis-story-head">
+            <span class="c-vis-impact c-vis-impact-med">● Medium</span>
+            <span class="c-vis-story-time">1d</span>
+          </div>
+          <div class="c-vis-story-t">Cloudflare says AI made 1,100 jobs obsolete</div>
+          <span class="c-vis-source">The Verge</span>
+        </div>
       </div>
-      <div class="c-vis-item">
-        <span class="c-vis-n">02</span>
-        <div class="c-vis-t">Mistral opens an on-device "edge" tier.</div>
-      </div>
-      <div class="c-vis-item">
-        <span class="c-vis-n">03</span>
-        <div class="c-vis-t">OpenAI's voice API drops to $0.003/min.</div>
-      </div>
-      <div class="c-vis-ask">Ask: why does this matter for builders?</div>
     </div>
     <div class="c-vis-song" *ngSwitchCase="'karaoke'">
-      <div class="c-vis-top">
-        <span class="c-vis-topic">THEME · CAFÉ</span>
-        <span class="c-vis-lvl">A2 · beginner+</span>
+      <div class="c-vis-song-top">
+        <div class="c-vis-album"><span>S</span></div>
+        <div class="c-vis-song-meta">
+          <div class="c-vis-song-title">Studierar Tillsammans</div>
+          <div class="c-vis-song-lang c-mono">SWEDISH · A2</div>
+          <div class="c-vis-song-langs">
+            <span class="is-active">EN</span><span>中文</span><span>ES</span><span>DE</span>
+          </div>
+        </div>
       </div>
-      <div class="c-vis-lyric">
-        jag <span class="c-vis-now">tar</span> en kopp kaffe<br />
-        <span class="c-vis-next">och en kanelbulle, tack</span>
-      </div>
-      <div class="c-vis-gloss">
-        <span><b>tar</b> = take</span>
-        <span><b>kanelbulle</b> = cinnamon bun</span>
+      <div class="c-vis-lyric-block">
+        <div class="c-vis-lyric-prev">Jag mår bra tack</div>
+        <div class="c-vis-lyric-now">
+          <span class="c-vis-word-on">Ska</span> <span class="c-vis-word-on">vi</span> <span class="c-vis-word-on">studera</span> här
+        </div>
+        <div class="c-vis-lyric-tr">Shall we study here?</div>
       </div>
       <div class="c-vis-bar"><i></i></div>
       <div class="c-vis-controls">
+        <span class="c-vis-time">00:15</span>
         <span class="c-vis-play">▶</span>
-        <span class="c-mono" style="font-size: 11px;">verb · present</span>
-        <span class="c-vis-time">01:24 / 02:18</span>
+        <span class="c-vis-time c-vis-time-end">01:46</span>
       </div>
     </div>
   </div>

@@ -172,201 +172,317 @@
 }
 
 // ─────────────────────────────────────────────────────
-// Resume Preview
+// Resume Preview — Tailor Resume editor
 // ─────────────────────────────────────────────────────
 .c-vis-resume {
-  padding: 16px;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 10px;
+  padding: 12px;
+  background: #f4f6f8;
+  height: 100%;
+}
+
+html[data-dark="1"] .c-vis-resume {
+  background: #1a1d22;
+}
+
+.c-vis-resume-side {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+html[data-dark="1"] .c-vis-resume-side {
+  background: #14171b;
+}
+
+.c-vis-resume-side-h {
+  font-size: 8px;
+  color: var(--mute);
+  letter-spacing: 0.08em;
+}
+
+.c-vis-dials {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.c-vis-dial {
+  position: relative;
+  width: 36px;
+  height: 36px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  span {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+}
+
+.c-vis-dial-track {
+  fill: none;
+  stroke: #e6e8ec;
+  stroke-width: 3;
+}
+
+html[data-dark="1"] .c-vis-dial-track {
+  stroke: #2a2e34;
+}
+
+.c-vis-dial-fill {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.c-vis-dial-low .c-vis-dial-fill {
+  stroke: #ef5a6f;
+}
+
+.c-vis-dial-high .c-vis-dial-fill {
+  stroke: #1ec27a;
+}
+
+.c-vis-dial-labels {
+  display: flex;
+  justify-content: space-around;
+  font-size: 7px;
+  color: var(--mute);
 }
 
 .c-vis-doc {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 6px;
-  padding: 12px;
-  font-size: 9px;
-  line-height: 1.5;
+  padding: 10px 12px;
   color: #0a0a0a;
   box-shadow: 0 4px 14px -8px rgba(10, 10, 10, 0.18);
-  transform: rotate(-1.4deg);
-  transform-origin: 30% 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
 }
 
 html[data-dark="1"] .c-vis-doc {
+  background: #fafafa;
   color: #0a0a0a;
 }
 
 .c-vis-name {
   font-weight: 700;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: -0.01em;
+  text-align: center;
 }
 
 .c-vis-role {
-  color: #666;
+  color: #444;
+  font-size: 9px;
+  text-align: center;
+}
+
+.c-vis-meta {
+  color: #888;
+  font-size: 7.5px;
+  text-align: center;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #eee;
+}
+
+.c-vis-section {
   font-size: 8px;
-  margin-bottom: 6px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0a0a0a;
+  margin-top: 3px;
 }
 
 .c-vis-line {
   height: 3px;
-  background: #eee;
+  background: #e9ebee;
   border-radius: 2px;
-  margin: 3px 0;
 }
 
-.c-vis-line-s {
-  width: 60%;
-}
+.c-vis-line-s { width: 55%; }
+.c-vis-line-m { width: 78%; }
+.c-vis-line-l { width: 95%; }
 
-.c-vis-line-m {
-  width: 80%;
+.c-vis-line-bold {
+  height: 4px;
+  background: #c9cdd3;
+  width: 50%;
+  border-radius: 2px;
 }
 
 .c-vis-line-hl {
-  background: #ffd28a;
+  background: #d6f3e3;
+  width: 90%;
   position: relative;
 
   &::after {
     content: "";
     position: absolute;
-    left: -4px;
-    top: -3px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 2px solid #fff;
+    left: -3px;
+    top: -2px;
+    bottom: -2px;
+    width: 2px;
+    background: #1ec27a;
+    border-radius: 2px;
   }
 }
 
-.c-vis-ats {
+.c-vis-export {
   position: absolute;
-  right: 14px;
-  top: 14px;
-  background: #0a0a0a;
+  top: 10px;
+  right: 10px;
+  background: #1ec27a;
   color: #fff;
-  border-radius: 999px;
-  padding: 4px 10px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.c-vis-pct {
-  color: var(--accent);
-}
-
-.c-vis-float {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 6px 9px;
-  font-size: 10px;
-  box-shadow: var(--shadow-2);
-  color: #0a0a0a;
-  max-width: 60%;
-
-  b {
-    color: var(--accent);
-  }
+  padding: 4px 8px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px -2px rgba(30, 194, 122, 0.5);
 }
 
 // ─────────────────────────────────────────────────────
-// Reporter Card
+// Reporter Card — AI-Reporter feed
 // ─────────────────────────────────────────────────────
 .c-vis-news {
-  padding: 14px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  justify-content: center;
+  background: #f4f6f8;
+  height: 100%;
+  overflow: hidden;
 }
 
-.c-vis-head {
+html[data-dark="1"] .c-vis-news {
+  background: #15181c;
+}
+
+.c-vis-news-header {
+  background: #1f2330;
+  color: #fff;
+  padding: 10px 14px 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.c-vis-date {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
-  color: var(--mute);
+.c-vis-news-brand {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-.c-vis-live {
-  display: inline-flex;
-  gap: 5px;
-  align-items: center;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
-  color: var(--ink);
-
-  i {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: c-pulse 1.6s infinite;
-  }
-}
-
-.c-vis-item {
+.c-vis-news-tabs {
   display: flex;
   gap: 10px;
-  padding: 8px 0;
-  border-top: 1px solid var(--line);
+  font-size: 9px;
 
-  &:first-of-type {
-    border-top: 0;
-    padding-top: 4px;
+  span {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .is-active {
+    color: #fff;
   }
 }
 
-.c-vis-item-hot .c-vis-t::before {
-  content: "●";
-  color: var(--accent);
-  margin-right: 4px;
+.c-vis-news-title {
+  background: #1f2330;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 0 14px 12px;
+  line-height: 1.15;
 }
 
-.c-vis-n {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
-  color: var(--mute);
-  width: 18px;
-  flex: 0 0 auto;
+.c-vis-news-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 10px;
+  flex: 1;
 }
 
-.c-vis-t {
-  font-size: 12px;
-  line-height: 1.35;
-  font-weight: 500;
+.c-vis-story {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #0a0a0a;
 }
 
-.c-vis-ask {
-  margin-top: auto;
+html[data-dark="1"] .c-vis-story {
+  background: #1c1f24;
+  color: #f0f1f3;
+  border-color: #2a2e34;
+}
+
+.c-vis-story-head {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 10px 6px 12px;
-  font-size: 11.5px;
-  color: var(--mute);
+  justify-content: space-between;
+  font-size: 8px;
+}
 
-  &::after {
-    content: "↵";
-    margin-left: auto;
-    color: var(--ink);
-    font-weight: 600;
-  }
+.c-vis-impact {
+  font-weight: 600;
+  font-size: 8px;
+}
+
+.c-vis-impact-high { color: #ff6a3d; }
+.c-vis-impact-med { color: #4a5b8a; }
+
+html[data-dark="1"] .c-vis-impact-med { color: #8aa0d6; }
+
+.c-vis-story-time {
+  color: #888;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 7.5px;
+}
+
+.c-vis-story-t {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+.c-vis-source {
+  font-size: 7.5px;
+  background: #eef0f3;
+  color: #444;
+  padding: 2px 6px;
+  border-radius: 3px;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+html[data-dark="1"] .c-vis-source {
+  background: #2a2e34;
+  color: #c0c4cc;
 }
 
 @keyframes c-pulse {
@@ -380,78 +496,123 @@ html[data-dark="1"] .c-vis-doc {
 }
 
 // ─────────────────────────────────────────────────────
-// Karaoke Card
+// Karaoke Card — Karaok lyrics player
 // ─────────────────────────────────────────────────────
 .c-vis-song {
   padding: 14px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   justify-content: space-between;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--accent) 8%, var(--bg)) 0%,
-    var(--bg) 100%
-  );
+  background:
+    radial-gradient(ellipse at 18% 25%, rgba(168, 85, 247, 0.28), transparent 55%),
+    radial-gradient(ellipse at 85% 80%, rgba(244, 114, 182, 0.22), transparent 55%),
+    linear-gradient(180deg, #0f0a1c 0%, #07050f 100%);
+  color: #fff;
 }
 
-.c-vis-top {
+.c-vis-song-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.c-vis-topic {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
-  color: var(--ink);
-}
-
-.c-vis-lvl {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
-  color: var(--mute);
-}
-
-.c-vis-lyric {
-  font-family: "Instrument Serif", serif;
-  font-style: italic;
-  font-size: 18px;
-  line-height: 1.25;
-  letter-spacing: -0.005em;
-}
-
-.c-vis-now {
-  background: var(--accent);
-  color: #0a0a0a;
-  padding: 0 4px;
-  border-radius: 3px;
-  font-style: normal;
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 600;
-  font-size: 17px;
-}
-
-.c-vis-next {
-  color: var(--mute);
-}
-
-.c-vis-gloss {
-  font-size: 11px;
-  color: var(--ink-2);
-  display: flex;
   gap: 10px;
+}
 
-  b {
-    color: var(--ink);
-    font-weight: 600;
+.c-vis-album {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 30% 30%, #c084fc, transparent 60%),
+    radial-gradient(circle at 70% 70%, #f472b6, transparent 60%),
+    linear-gradient(135deg, #6d28d9, #312e81);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 22px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  flex: 0 0 auto;
+}
+
+.c-vis-song-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.c-vis-song-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c-vis-song-lang {
+  font-size: 8.5px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.08em;
+}
+
+.c-vis-song-langs {
+  display: flex;
+  gap: 4px;
+  margin-top: 2px;
+
+  span {
+    font-size: 8px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .is-active {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: #fff;
   }
 }
 
+.c-vis-lyric-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  padding: 4px 0;
+}
+
+.c-vis-lyric-prev {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.c-vis-lyric-now {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.2;
+}
+
+.c-vis-word-on {
+  color: #fbbf24;
+}
+
+.c-vis-lyric-tr {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
 .c-vis-bar {
-  height: 4px;
+  height: 3px;
   border-radius: 999px;
-  background: var(--line);
+  background: rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
 
@@ -460,38 +621,51 @@ html[data-dark="1"] .c-vis-doc {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 62%;
-    background: linear-gradient(
-      90deg,
-      var(--accent),
-      color-mix(in srgb, var(--accent) 70%, #0a0a0a)
-    );
+    width: 28%;
+    background: linear-gradient(90deg, #6366f1, #a855f7, #f472b6);
     border-radius: 999px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 28%;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fbbf24;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
   }
 }
 
 .c-vis-controls {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
 }
 
 .c-vis-play {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: var(--ink);
-  color: var(--bg);
+  background: #fbbf24;
+  color: #0a0a0a;
   display: grid;
   place-items: center;
-  font-size: 11px;
+  font-size: 12px;
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.35);
 }
 
 .c-vis-time {
   font-family: "JetBrains Mono", monospace;
-  font-size: 10.5px;
-  color: var(--mute);
-  margin-left: auto;
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.c-vis-time-end {
+  text-align: right;
 }
 
 // Mobile touch tweaks
