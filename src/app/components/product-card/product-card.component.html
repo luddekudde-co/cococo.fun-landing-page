@@ -1,10 +1,9 @@
-<article class="c-card" [id]="product.id">
+<a class="c-card" [id]="product.id" [href]="product.href">
   <div class="c-card-row1">
     <div class="c-card-badge">
       <span class="c-card-num">{{ product.num }}</span>
       <span class="c-mono c-card-kind">{{ product.kind }}</span>
     </div>
-    <span class="c-card-arrow" aria-hidden="true">↗</span>
   </div>
   <div>
     <h3 class="c-card-title" [innerHTML]="product.titleHtml"></h3>
@@ -17,15 +16,27 @@
         <div class="c-vis-dials">
           <div class="c-vis-dial c-vis-dial-low">
             <svg viewBox="0 0 36 36">
-              <circle cx="18" cy="18" r="15.9" class="c-vis-dial-track"/>
-              <circle cx="18" cy="18" r="15.9" class="c-vis-dial-fill" stroke-dasharray="45 100"/>
+              <circle cx="18" cy="18" r="15.9" class="c-vis-dial-track" />
+              <circle
+                cx="18"
+                cy="18"
+                r="15.9"
+                class="c-vis-dial-fill"
+                stroke-dasharray="45 100"
+              />
             </svg>
             <span>45%</span>
           </div>
           <div class="c-vis-dial c-vis-dial-high">
             <svg viewBox="0 0 36 36">
-              <circle cx="18" cy="18" r="15.9" class="c-vis-dial-track"/>
-              <circle cx="18" cy="18" r="15.9" class="c-vis-dial-fill" stroke-dasharray="78 100"/>
+              <circle cx="18" cy="18" r="15.9" class="c-vis-dial-track" />
+              <circle
+                cx="18"
+                cy="18"
+                r="15.9"
+                class="c-vis-dial-fill"
+                stroke-dasharray="78 100"
+              />
             </svg>
             <span>78%</span>
           </div>
@@ -63,7 +74,9 @@
             <span class="c-vis-impact c-vis-impact-high">● High Impact</span>
             <span class="c-vis-story-time">22h</span>
           </div>
-          <div class="c-vis-story-t">Nvidia commits $40B to equity AI deals this year</div>
+          <div class="c-vis-story-t">
+            Nvidia commits $40B to equity AI deals this year
+          </div>
           <span class="c-vis-source">TechCrunch</span>
         </div>
         <div class="c-vis-story">
@@ -71,7 +84,9 @@
             <span class="c-vis-impact c-vis-impact-med">● Medium</span>
             <span class="c-vis-story-time">1d</span>
           </div>
-          <div class="c-vis-story-t">Cloudflare says AI made 1,100 jobs obsolete</div>
+          <div class="c-vis-story-t">
+            Cloudflare says AI made 1,100 jobs obsolete
+          </div>
           <span class="c-vis-source">The Verge</span>
         </div>
       </div>
@@ -83,14 +98,17 @@
           <div class="c-vis-song-title">Studierar Tillsammans</div>
           <div class="c-vis-song-lang c-mono">SWEDISH · A2</div>
           <div class="c-vis-song-langs">
-            <span class="is-active">EN</span><span>中文</span><span>ES</span><span>DE</span>
+            <span class="is-active">EN</span><span>中文</span><span>ES</span
+            ><span>DE</span>
           </div>
         </div>
       </div>
       <div class="c-vis-lyric-block">
         <div class="c-vis-lyric-prev">Jag mår bra tack</div>
         <div class="c-vis-lyric-now">
-          <span class="c-vis-word-on">Ska</span> <span class="c-vis-word-on">vi</span> <span class="c-vis-word-on">studera</span> här
+          <span class="c-vis-word-on">Ska</span>
+          <span class="c-vis-word-on">vi</span>
+          <span class="c-vis-word-on">studera</span> här
         </div>
         <div class="c-vis-lyric-tr">Shall we study here?</div>
       </div>
@@ -107,9 +125,9 @@
   </ul>
   <div class="c-card-foot">
     <span class="c-mono c-card-meta">{{ product.meta }}</span>
-    <a [href]="'#' + product.id" class="c-card-open">
+    <a [href]="product.href" class="c-card-open">
       <span class="c-card-underline">{{ product.openLabel }}</span>
       <span aria-hidden="true">→</span>
     </a>
   </div>
-</article>
+</a>

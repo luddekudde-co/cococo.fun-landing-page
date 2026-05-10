@@ -8,6 +8,7 @@ export interface Product {
   meta: string;
   openLabel: string;
   visual: 'resume' | 'reporter' | 'karaoke';
+  href: string;
 }
 
 export const PRODUCTS: Product[] = [
@@ -16,15 +17,16 @@ export const PRODUCTS: Product[] = [
     num: '01',
     kind: 'tailor',
     titleHtml: 'A resume that gets <em>read</em> — by bots and humans.',
-    tag: 'Paste a job link. Get a version of your resume that passes ATS keywords and reads like a person wrote it.',
+    tag: 'Paste a job description. Get a version of your resume that passes ATS keywords and reads like a person wrote it.',
     bullets: [
-      'Paste any job link or description',
-      'Bullet rewrites with tone control',
-      'One-click PDF + cover letter draft',
+      'Paste any job description, upload your resume',
+      'Rewrite, polish and save',
+      'AI-powered suggestions',
     ],
-    meta: 'free · 5 tailors / wk',
+    meta: '',
     openLabel: 'Open Tailor',
     visual: 'resume',
+    href: '/tailor-resume',
   },
   {
     id: 'reporter',
@@ -33,13 +35,14 @@ export const PRODUCTS: Product[] = [
     titleHtml: 'Today in <em>AI</em> — in five minutes flat.',
     tag: 'A daily brief of the AI news and product moves that matter, with a chatbot to deepdive any story.',
     bullets: [
-      '5-minute morning brief, every weekday',
-      'Chat any headline for context, sources, "so what"',
+      'AI weekly digest',
+      'Chat with AI to deepdive any story',
       'Trends across launches, papers, hiring',
     ],
-    meta: 'free · daily · email or app',
+    meta: 'free · web app',
     openLabel: 'Open Reporter',
     visual: 'reporter',
+    href: '/ai-reporter',
   },
   {
     id: 'karaoke',
@@ -48,12 +51,13 @@ export const PRODUCTS: Product[] = [
     titleHtml: 'Sing your way <em>into Swedish</em>.',
     tag: 'Songs built around everyday themes — coffee, work, dating. Lyrics, translation, and grammar notes that actually stick.',
     bullets: [
-      '40+ themes — café, dating, work, transit',
+      'Multiple themes — café, dating, work, transit',
       'Tap any word → meaning + grammar',
-      'Daily 4-min "sjung-och-lär" sessions',
+      'Karaoke auto scrolls, so you can sing along',
     ],
-    meta: 'free · 1 song / day',
+    meta: '',
     openLabel: 'Open Karaoke',
     visual: 'karaoke',
+    href: '#karaoke',
   },
 ];

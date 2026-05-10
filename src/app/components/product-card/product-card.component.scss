@@ -10,7 +10,10 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.25s;
   min-height: 380px;
 
   &:hover {
@@ -47,24 +50,6 @@
 
 .c-card-kind {
   color: var(--mute);
-}
-
-.c-card-arrow {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  display: grid;
-  place-items: center;
-  transition: background 0.2s, color 0.2s, transform 0.25s;
-}
-
-.c-card:hover .c-card-arrow {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #0a0a0a;
-  transform: rotate(-45deg);
 }
 
 .c-card h3 {
@@ -320,9 +305,15 @@ html[data-dark="1"] .c-vis-doc {
   border-radius: 2px;
 }
 
-.c-vis-line-s { width: 55%; }
-.c-vis-line-m { width: 78%; }
-.c-vis-line-l { width: 95%; }
+.c-vis-line-s {
+  width: 55%;
+}
+.c-vis-line-m {
+  width: 78%;
+}
+.c-vis-line-l {
+  width: 95%;
+}
 
 .c-vis-line-bold {
   height: 4px;
@@ -452,10 +443,16 @@ html[data-dark="1"] .c-vis-story {
   font-size: 8px;
 }
 
-.c-vis-impact-high { color: #ff6a3d; }
-.c-vis-impact-med { color: #4a5b8a; }
+.c-vis-impact-high {
+  color: #ff6a3d;
+}
+.c-vis-impact-med {
+  color: #4a5b8a;
+}
 
-html[data-dark="1"] .c-vis-impact-med { color: #8aa0d6; }
+html[data-dark="1"] .c-vis-impact-med {
+  color: #8aa0d6;
+}
 
 .c-vis-story-time {
   color: #888;
@@ -505,8 +502,16 @@ html[data-dark="1"] .c-vis-source {
   gap: 12px;
   justify-content: space-between;
   background:
-    radial-gradient(ellipse at 18% 25%, rgba(168, 85, 247, 0.28), transparent 55%),
-    radial-gradient(ellipse at 85% 80%, rgba(244, 114, 182, 0.22), transparent 55%),
+    radial-gradient(
+      ellipse at 18% 25%,
+      rgba(168, 85, 247, 0.28),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 85% 80%,
+      rgba(244, 114, 182, 0.22),
+      transparent 55%
+    ),
     linear-gradient(180deg, #0f0a1c 0%, #07050f 100%);
   color: #fff;
 }
@@ -671,12 +676,6 @@ html[data-dark="1"] .c-vis-source {
 // Mobile touch tweaks
 @media (hover: none) {
   .c-card:hover {
-    transform: none;
-  }
-
-  .c-card:hover .c-card-arrow {
-    background: var(--bg);
-    color: var(--ink);
     transform: none;
   }
 }
