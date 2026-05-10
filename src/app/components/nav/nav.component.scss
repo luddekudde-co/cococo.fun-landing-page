@@ -1,0 +1,135 @@
+.c-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+
+  &[data-stuck="1"] {
+    border-bottom-color: var(--line);
+  }
+}
+
+.c-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.c-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.c-logo-mark {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 0 0 3px var(--accent) inset, 0 0 0 4px var(--ink) inset;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    clip-path: polygon(100% 0, 100% 38%, 62% 0);
+  }
+}
+
+.c-logo-name {
+  text-transform: lowercase;
+}
+
+.c-logo-dot {
+  color: var(--accent);
+  margin-left: -6px;
+  font-weight: 700;
+}
+
+.c-nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+
+  a {
+    color: var(--mute);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.15s;
+
+    &:hover {
+      color: var(--ink);
+    }
+  }
+
+  @media (max-width: 720px) {
+    display: none;
+  }
+}
+
+.c-theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  transition: background 0.2s, border-color 0.2s;
+
+  &:hover {
+    background: var(--line-2);
+    border-color: var(--mute);
+  }
+
+  .c-sun {
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .c-moon {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+}
+
+// Show moon in light mode, sun in dark mode
+html[data-dark="0"] .c-theme-toggle .c-sun {
+  opacity: 1;
+}
+
+html[data-dark="0"] .c-theme-toggle .c-moon {
+  opacity: 0;
+}
+
+html[data-dark="1"] .c-theme-toggle .c-sun {
+  opacity: 0;
+}
+
+html[data-dark="1"] .c-theme-toggle .c-moon {
+  opacity: 1;
+}

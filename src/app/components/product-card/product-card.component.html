@@ -1,0 +1,78 @@
+<article class="c-card" [id]="product.id">
+  <div class="c-card-row1">
+    <div class="c-card-badge">
+      <span class="c-card-num">{{ product.num }}</span>
+      <span class="c-mono c-card-kind">{{ product.kind }}</span>
+    </div>
+    <span class="c-card-arrow" aria-hidden="true">↗</span>
+  </div>
+  <div>
+    <h3 class="c-card-title" [innerHTML]="product.titleHtml"></h3>
+    <p class="c-card-tag">{{ product.tag }}</p>
+  </div>
+  <div class="c-vis" [ngSwitch]="product.visual">
+    <div class="c-vis-resume" *ngSwitchCase="'resume'">
+      <div class="c-vis-ats c-mono"><span>ATS</span><span class="c-vis-pct">86%</span></div>
+      <div class="c-vis-doc">
+        <div class="c-vis-name">Anna Lindqvist</div>
+        <div class="c-vis-role">Senior Product Designer · Stockholm</div>
+        <div class="c-vis-line c-vis-line-m"></div>
+        <div class="c-vis-line c-vis-line-s"></div>
+        <div class="c-vis-line c-vis-line-hl"></div>
+        <div class="c-vis-line c-vis-line-m"></div>
+        <div class="c-vis-line c-vis-line-s"></div>
+        <div class="c-vis-line c-vis-line-m"></div>
+      </div>
+      <div class="c-vis-float">Tightened bullet — kept human <b>↑12%</b></div>
+    </div>
+    <div class="c-vis-news" *ngSwitchCase="'reporter'">
+      <div class="c-vis-head">
+        <span class="c-vis-date">FRI · MAY 09</span>
+        <span class="c-vis-live"><i></i> updated 8m ago</span>
+      </div>
+      <div class="c-vis-item c-vis-item-hot">
+        <span class="c-vis-n">01</span>
+        <div class="c-vis-t">Anthropic ships agentic search across Claude apps.</div>
+      </div>
+      <div class="c-vis-item">
+        <span class="c-vis-n">02</span>
+        <div class="c-vis-t">Mistral opens an on-device "edge" tier.</div>
+      </div>
+      <div class="c-vis-item">
+        <span class="c-vis-n">03</span>
+        <div class="c-vis-t">OpenAI's voice API drops to $0.003/min.</div>
+      </div>
+      <div class="c-vis-ask">Ask: why does this matter for builders?</div>
+    </div>
+    <div class="c-vis-song" *ngSwitchCase="'karaoke'">
+      <div class="c-vis-top">
+        <span class="c-vis-topic">THEME · CAFÉ</span>
+        <span class="c-vis-lvl">A2 · beginner+</span>
+      </div>
+      <div class="c-vis-lyric">
+        jag <span class="c-vis-now">tar</span> en kopp kaffe<br />
+        <span class="c-vis-next">och en kanelbulle, tack</span>
+      </div>
+      <div class="c-vis-gloss">
+        <span><b>tar</b> = take</span>
+        <span><b>kanelbulle</b> = cinnamon bun</span>
+      </div>
+      <div class="c-vis-bar"><i></i></div>
+      <div class="c-vis-controls">
+        <span class="c-vis-play">▶</span>
+        <span class="c-mono" style="font-size: 11px;">verb · present</span>
+        <span class="c-vis-time">01:24 / 02:18</span>
+      </div>
+    </div>
+  </div>
+  <ul class="c-card-bullets">
+    <li *ngFor="let b of product.bullets">{{ b }}</li>
+  </ul>
+  <div class="c-card-foot">
+    <span class="c-mono c-card-meta">{{ product.meta }}</span>
+    <a [href]="'#' + product.id" class="c-card-open">
+      <span class="c-card-underline">{{ product.openLabel }}</span>
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</article>

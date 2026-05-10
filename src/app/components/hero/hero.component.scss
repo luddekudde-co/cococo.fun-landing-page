@@ -1,0 +1,84 @@
+.c-hero {
+  padding: 72px 0 48px;
+  position: relative;
+
+  @media (min-width: 900px) {
+    padding: 110px 0 80px;
+  }
+}
+
+.c-hero-compact {
+  padding: 56px 0 28px;
+
+  @media (min-width: 900px) {
+    padding: 72px 0 40px;
+  }
+}
+
+.c-h1-compact {
+  font-size: clamp(28px, 4.4vw, 48px) !important;
+  line-height: 1.1 !important;
+  max-width: 880px;
+  letter-spacing: -0.02em !important;
+}
+
+.c-hero-compact .c-lede {
+  margin-top: 18px;
+  font-size: 15px;
+}
+
+.c-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: var(--shadow-1);
+}
+
+.c-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.c-h1 {
+  margin: 22px 0 0;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  font-size: clamp(44px, 8vw, 96px);
+  line-height: 0.96;
+}
+
+.c-h1 em {
+  font-style: normal;
+  background: linear-gradient(120deg, var(--accent) 0%, var(--accent) 60%, transparent 60%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.42em;
+  background-position: 0 88%;
+  padding: 0 0.04em;
+}
+
+.c-h1 .c-serif {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.c-lede {
+  margin: 28px 0 0;
+  max-width: 640px;
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.5;
+  color: var(--ink-2);
+
+  b {
+    font-weight: 600;
+  }
+}

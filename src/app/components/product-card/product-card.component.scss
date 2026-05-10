@@ -1,0 +1,508 @@
+// Product Card styling — ported from prototype
+.c-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--rad);
+  padding: 22px;
+  box-shadow: var(--shadow-1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  min-height: 380px;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-2);
+    border-color: color-mix(in srgb, var(--ink) 22%, var(--line));
+  }
+}
+
+.c-card-row1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.c-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.c-card-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.c-card-kind {
+  color: var(--mute);
+}
+
+.c-card-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  transition: background 0.2s, color 0.2s, transform 0.25s;
+}
+
+.c-card:hover .c-card-arrow {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0a0a0a;
+  transform: rotate(-45deg);
+}
+
+.c-card h3 {
+  margin: 0;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.c-card h3 em {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.c-card-title {
+  margin: 0;
+}
+
+.c-card-tag {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.c-vis {
+  flex: 1;
+  min-height: 120px;
+  border-radius: var(--rad-sm);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.c-card-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.c-card-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+
+.c-card-bullets li::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 9px;
+}
+
+.c-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--line);
+}
+
+.c-card-meta {
+  color: var(--mute);
+}
+
+.c-card-open {
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.c-card-underline {
+  position: relative;
+}
+
+.c-card-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+
+.c-card:hover .c-card-underline::after {
+  transform: scaleX(1);
+}
+
+// ─────────────────────────────────────────────────────
+// Resume Preview
+// ─────────────────────────────────────────────────────
+.c-vis-resume {
+  padding: 16px;
+}
+
+.c-vis-doc {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 9px;
+  line-height: 1.5;
+  color: #0a0a0a;
+  box-shadow: 0 4px 14px -8px rgba(10, 10, 10, 0.18);
+  transform: rotate(-1.4deg);
+  transform-origin: 30% 50%;
+}
+
+html[data-dark="1"] .c-vis-doc {
+  color: #0a0a0a;
+}
+
+.c-vis-name {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: -0.01em;
+}
+
+.c-vis-role {
+  color: #666;
+  font-size: 8px;
+  margin-bottom: 6px;
+}
+
+.c-vis-line {
+  height: 3px;
+  background: #eee;
+  border-radius: 2px;
+  margin: 3px 0;
+}
+
+.c-vis-line-s {
+  width: 60%;
+}
+
+.c-vis-line-m {
+  width: 80%;
+}
+
+.c-vis-line-hl {
+  background: #ffd28a;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: -3px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #fff;
+  }
+}
+
+.c-vis-ats {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  background: #0a0a0a;
+  color: #fff;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.c-vis-pct {
+  color: var(--accent);
+}
+
+.c-vis-float {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 9px;
+  font-size: 10px;
+  box-shadow: var(--shadow-2);
+  color: #0a0a0a;
+  max-width: 60%;
+
+  b {
+    color: var(--accent);
+  }
+}
+
+// ─────────────────────────────────────────────────────
+// Reporter Card
+// ─────────────────────────────────────────────────────
+.c-vis-news {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.c-vis-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-vis-date {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--mute);
+}
+
+.c-vis-live {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--ink);
+
+  i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: c-pulse 1.6s infinite;
+  }
+}
+
+.c-vis-item {
+  display: flex;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+
+  &:first-of-type {
+    border-top: 0;
+    padding-top: 4px;
+  }
+}
+
+.c-vis-item-hot .c-vis-t::before {
+  content: "●";
+  color: var(--accent);
+  margin-right: 4px;
+}
+
+.c-vis-n {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--mute);
+  width: 18px;
+  flex: 0 0 auto;
+}
+
+.c-vis-t {
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.c-vis-ask {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px 6px 12px;
+  font-size: 11.5px;
+  color: var(--mute);
+
+  &::after {
+    content: "↵";
+    margin-left: auto;
+    color: var(--ink);
+    font-weight: 600;
+  }
+}
+
+@keyframes c-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+// ─────────────────────────────────────────────────────
+// Karaoke Card
+// ─────────────────────────────────────────────────────
+.c-vis-song {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 8%, var(--bg)) 0%,
+    var(--bg) 100%
+  );
+}
+
+.c-vis-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-vis-topic {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--ink);
+}
+
+.c-vis-lvl {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--mute);
+}
+
+.c-vis-lyric {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+.c-vis-now {
+  background: var(--accent);
+  color: #0a0a0a;
+  padding: 0 4px;
+  border-radius: 3px;
+  font-style: normal;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.c-vis-next {
+  color: var(--mute);
+}
+
+.c-vis-gloss {
+  font-size: 11px;
+  color: var(--ink-2);
+  display: flex;
+  gap: 10px;
+
+  b {
+    color: var(--ink);
+    font-weight: 600;
+  }
+}
+
+.c-vis-bar {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--line);
+  position: relative;
+  overflow: hidden;
+
+  i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 62%;
+    background: linear-gradient(
+      90deg,
+      var(--accent),
+      color-mix(in srgb, var(--accent) 70%, #0a0a0a)
+    );
+    border-radius: 999px;
+  }
+}
+
+.c-vis-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.c-vis-play {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+}
+
+.c-vis-time {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  color: var(--mute);
+  margin-left: auto;
+}
+
+// Mobile touch tweaks
+@media (hover: none) {
+  .c-card:hover {
+    transform: none;
+  }
+
+  .c-card:hover .c-card-arrow {
+    background: var(--bg);
+    color: var(--ink);
+    transform: none;
+  }
+}

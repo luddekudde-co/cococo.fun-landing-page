@@ -1,0 +1,14 @@
+.c-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px 0 32px;
+  margin-top: 80px;
+}
+
+.c-foot-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: var(--mute);
+  font-size: 12px;
+}
