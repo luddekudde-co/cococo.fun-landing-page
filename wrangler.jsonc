@@ -1,6 +1,10 @@
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cococo-landing-page",
-  "compatibility_date": "2025-01-01",
+  "compatibility_date": "2026-05-10",
+  "observability": {
+    "enabled": true
+  },
   "assets": {
     "directory": "./dist/atoy-homepage/browser",
     "not_found_handling": "single-page-application"
