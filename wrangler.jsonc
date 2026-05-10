@@ -1,0 +1,8 @@
+{
+  "name": "cococo-landing-page",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./dist/atoy-homepage/browser",
+    "not_found_handling": "single-page-application"
+  }
+}
